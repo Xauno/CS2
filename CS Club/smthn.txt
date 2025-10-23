@@ -1,0 +1,13 @@
+-How the fixed program works:
+at the start of execution, get a list of all primes from 1 to 1000 to refer to 
+throughout execution (each input number is
+guaranteed to be less than or equal to 1000)
+read in the number of trials
+for each trial:
+	read in the inputs into a new array
+	calculate the LCM of the array by:
+		getting the prime factors of every number, with the 
+		number of occurances of each prime
+		find the maximum number of occurances in each prime 
+		throughout the array
+	return a number that is equal to the product of the maximum number of occurances of each prime

@@ -11,12 +11,11 @@ public class Part implements Comparable<Part>
 
 	public Part(String line) 
 	{
-		String[] list = line.split("\\d+");
-		System.out.println(Arrays.toString(list));
-		// rest = list[0];
-		// make = list[1];
-		// mode = list[2];
-		// year = Integer.parseInt(list[3]);
+		String[] list = line.split("(?<=\\S)\\s+(?=\\d)|(?<=\\d)\\s+(?=\\S)");
+		rest = list[1];
+		make = list[2];
+		mode = list[0];
+		year = Integer.parseInt(list[3]);
 
 
 
@@ -25,16 +24,26 @@ public class Part implements Comparable<Part>
 	//have to have compareTo if implements Comparable
 	public int compareTo( Part rhs )
 	{
+		int makeDiff = this.make.compareTo(rhs.make);
+		if (makeDiff != 0) {
+			return makeDiff;
+		} else {
+			int modeDiff = this.mode.compareTo(rhs.mode);
+			if (modeDiff != 0) {
+				return modeDiff;
+			} else {
+				return Integer.compare(this.year, rhs.year);
+			}
+		}
+	}
 
-
-
-
-
-		return 0;
+	@Override
+	public boolean equals(Object obj) {
+		return this.toString().equals(obj.toString());
 	}
 
 	public String toString()
 	{
-		return "";
+		return make + " " + year  + "  " + mode + " " + rest;
 	}
 }

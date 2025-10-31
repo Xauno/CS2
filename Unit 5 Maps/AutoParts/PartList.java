@@ -28,6 +28,11 @@ public class PartList
 			while (file.hasNextLine()) 
 			{
 				Part line = new Part(file.nextLine());
+				if (partsMap.containsKey(line)) {
+					partsMap.put(line, partsMap.get(line) + 1);
+				} else {
+					partsMap.put(line, 1);
+				}
 				
 			}
 			//add code here to read from the file 
@@ -58,6 +63,9 @@ public class PartList
 	public String toString()
 	{
 		String output="";
+		for (Map.Entry<Part, Integer> entry : partsMap.entrySet()) {
+			output += entry.getKey().toString() + " - " + entry.getValue() + "\n";
+		}
 
 
 

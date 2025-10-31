@@ -27,7 +27,6 @@ public class Acronyms
 		String value = chop.nextLine().trim();
 		acronymTable.put(acronym, value);
 		chop.close();
-		System.out.println(acronym + " = " + value);
 	}
 
 	public String convert(String sent)

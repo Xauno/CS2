@@ -24,8 +24,8 @@ public class AcroRunner
 			}
 			while(file.hasNextLine())
 			{
-				String sent = file.nextLine();
-				out.println(test.convert(sent));
+				String line = file.nextLine();
+				out.println(test.convert(line));
 			}
 			file.close();
 		} catch (IOException e) {

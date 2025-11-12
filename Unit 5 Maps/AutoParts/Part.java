@@ -32,7 +32,7 @@ public class Part implements Comparable<Part>
 			if (modeDiff != 0) {
 				return modeDiff;
 			} else {
-				return Integer.compare(this.year, rhs.year);
+				return this.year - rhs.year;
 			}
 		}
 	}

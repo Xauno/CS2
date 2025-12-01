@@ -24,9 +24,13 @@ public class BaseConversion
 
 	private int convertToTen( )
 	{
-		//int q=number.length();
+		int q =number.length();
 		int base10=0;
-		base10 = Integer.parseInt(number, base);
+		for (int i = q; i > 0; i--) {
+			char ch = number.charAt(i-1);
+			int digit = ch - '0';
+			base10 += digit * Math.pow(base, q - i);
+		}
 
 
 		return base10;
@@ -34,9 +38,13 @@ public class BaseConversion
 
 	public String getNum(int newBase)
 	{
-	   int base10 = convertToTen();
+	   	int base10 = convertToTen();
 		String newNum="";
-		newNum = Integer.toString(base10, newBase);
+		while (base10 > 0) {
+			int rem = base10 % newBase;
+			newNum = rem + newNum;
+			base10 = base10 / newBase;
+		}
 
 
 

@@ -22,7 +22,8 @@ public class NumberRunner
 			int base = file.nextInt();
 			numbers.add(new Number(num, base));
 		}
-		numbers.sort(null);
+		file.close();
+		Collections.sort(numbers);
 		for (Number n : numbers) {
 			out.println(n);
 		} 
